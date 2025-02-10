@@ -1,6 +1,6 @@
 {
     "expo": {
-      "name": "Maestix World",
+      "name": "messaging app",
       "slug": "messaging-app",
       "version": "1.0.0",
       "orientation": "portrait",
@@ -13,10 +13,10 @@
       },
       "ios": {
         "supportsTablet": true,
-        "bundleIdentifier": "com.harshsoni08.messaging-app"
+        "bundleIdentifier": "com.harshsoni08.messaging.app"
       },
       "android": {
-        "package": "com.harshsoni08.messaging-app",
+        "package": "com.harshsoni08.messaging.app",
         "adaptiveIcon": {
           "foregroundImage": "./assets/favicon.png",
           "backgroundColor": "#ffffff"
