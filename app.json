@@ -1,34 +1,39 @@
 {
-    "expo": {
-      "name": "messaging app",
-      "slug": "messaging-app",
-      "version": "1.0.0",
-      "orientation": "portrait",
-      "icon": "./assets/favicon.png",
-      "userInterfaceStyle": "light",
-      "splash": {
-        "image": "./assets/favicon.png",
-        "resizeMode": "contain",
+  "expo": {
+    "name": "messaging-app",
+    "slug": "messaging-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.harshsoni08.messagingapp"
+    },
+    "android": {
+      "package": "com.harshsoni08.messagingapp",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "ios": {
-        "supportsTablet": true,
-        "bundleIdentifier": "com.harshsoni08.messaging.app"
-      },
-      "android": {
-        "package": "com.harshsoni08.messaging.app",
-        "adaptiveIcon": {
-          "foregroundImage": "./assets/favicon.png",
-          "backgroundColor": "#ffffff"
-        }},
-      "web": {
-        "favicon": "./assets/favicon.png"
-      },
-      "extra": {
-        "eas": {
-          "projectId": "4ab025d3-e675-43fc-8173-377e22a9a92f"
-        }
-      },
-      "owner": "harshsoni08"
-    }
+      "appVersionSource": "remote"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4ab025d3-e675-43fc-8173-377e22a9a92f"
+      }
+    },
+    "owner": "harshsoni08"
   }
+}
