@@ -1,0 +1,35 @@
+{
+    "expo": {
+      "name": "Maestix World",
+      "slug": "maestixworld",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/favicon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+        "image": "./assets/favicon.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
+      "ios": {
+        "supportsTablet": true,
+        "bundleIdentifier": "com.harshsoni08.maestixworld"
+      },
+      "android": {
+        "package": "com.harshsoni08.maestixworld",
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/favicon.png",
+          "backgroundColor": "#ffffff"
+        }
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+      "extra": {
+        "eas": {
+          "projectId": "a0eb683c-0e50-4344-bb78-2d9de1a36cf0"
+        }
+      },
+      "owner": "harshsoni08"
+    }
+  }

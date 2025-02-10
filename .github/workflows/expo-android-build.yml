@@ -1,0 +1,56 @@
+name: Expo Android Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install EAS CLI
+        run: npm install -g eas-cli
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set EXPO_TOKEN Environment Variable
+        run: echo "EXPO_TOKEN=${{ secrets.EXPO_TOKEN }}" >> $GITHUB_ENV
+
+      - name: Build Android APK with EAS
+        run: eas build --platform android --non-interactive
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Install jq
+        run: sudo apt-get install -y jq
+
+      - name: Get the APK file URL
+        run: |
+          JSON_OUTPUT=$(eas build:list --platform android --status finished --limit 1 --json --non-interactive)
+          echo "Raw JSON: $JSON_OUTPUT"
+          
+          APK_URL=$(echo "$JSON_OUTPUT" | node -e "let json = JSON.parse(require('fs').readFileSync(0, 'utf-8')); console.log(json[0]?.artifacts?.buildUrl || '')")
+          
+          echo "Retrieved URL: $APK_URL"
+          if [ -z "$APK_URL" ]; then
+            echo "No valid APK URL found or JSON is malformed, please check the build status."
+            exit 1
+          else
+            echo "APK_URL=${APK_URL}" >> $GITHUB_ENV
+          fi
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Output APK URL
+        run: echo "APK file is available at- ${{ env.APK_URL }}"
